@@ -20,19 +20,19 @@ interface MaterialCardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const categoryColors: Record<Material["category"], string> = {
-  plastic: "bg-blue-100 text-blue-700 border-blue-200",
-  metal: "bg-slate-100 text-slate-700 border-slate-200",
-  "e-waste": "bg-amber-100 text-amber-700 border-amber-200",
-  wood: "bg-orange-100 text-orange-700 border-orange-200",
-  glass: "bg-cyan-100 text-cyan-700 border-cyan-200",
-  other: "bg-gray-100 text-gray-700 border-gray-200",
+  plastic: "bg-blue-500/20 text-blue-300 border-blue-500/30",
+  metal: "bg-slate-500/20 text-slate-300 border-slate-500/30",
+  "e-waste": "bg-amber-500/20 text-amber-300 border-amber-500/30",
+  wood: "bg-orange-500/20 text-orange-300 border-orange-500/30",
+  glass: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
+  other: "bg-gray-500/20 text-gray-300 border-gray-500/30",
 };
 
 export function MaterialCard({ material, onRequest, className, ...props }: MaterialCardProps) {
   return (
     <div
       className={cn(
-        "group relative overflow-hidden rounded-xl border border-border bg-card p-5 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1",
+        "group relative overflow-hidden rounded-xl border border-border bg-card p-5 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 hover:border-primary/30",
         className
       )}
       {...props}
@@ -72,7 +72,7 @@ export function MaterialCard({ material, onRequest, className, ...props }: Mater
       </div>
 
       <Button
-        variant="hero"
+        variant="glow"
         size="sm"
         className="w-full"
         onClick={() => onRequest(material)}
@@ -80,7 +80,7 @@ export function MaterialCard({ material, onRequest, className, ...props }: Mater
         Request Material
       </Button>
 
-      <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-primary/0 transition-all duration-300 group-hover:ring-primary/10" />
+      <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-primary/0 transition-all duration-300 group-hover:ring-primary/20" />
     </div>
   );
 }

@@ -50,13 +50,13 @@ export default function AddMaterial() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <Navbar />
 
       <main className="container py-8 max-w-2xl">
         <Button
           variant="ghost"
-          className="mb-6"
+          className="mb-6 text-muted-foreground hover:text-foreground"
           onClick={() => navigate(-1)}
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
@@ -65,8 +65,8 @@ export default function AddMaterial() {
 
         <div className="bg-card rounded-xl border border-border shadow-card p-6 md:p-8">
           <div className="flex items-center gap-3 mb-6">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg gradient-primary">
-              <Package className="h-6 w-6 text-primary-foreground" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 border border-primary/20">
+              <Package className="h-6 w-6 text-primary" />
             </div>
             <div>
               <h1 className="text-2xl font-bold text-foreground">Add Material</h1>
@@ -78,26 +78,27 @@ export default function AddMaterial() {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="name">Material Name *</Label>
+              <Label htmlFor="name" className="text-foreground">Material Name *</Label>
               <Input
                 id="name"
                 placeholder="e.g., Plastic Containers, Aluminum Scraps"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className="bg-secondary border-border"
               />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="category">Category *</Label>
+                <Label htmlFor="category" className="text-foreground">Category *</Label>
                 <Select
                   value={formData.category}
                   onValueChange={(value) => setFormData({ ...formData, category: value })}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger className="bg-secondary border-border">
                     <SelectValue placeholder="Select category" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-card border-border">
                     {categories.map((cat) => (
                       <SelectItem key={cat.value} value={cat.value}>
                         {cat.label}
@@ -108,15 +109,15 @@ export default function AddMaterial() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="location">Location *</Label>
+                <Label htmlFor="location" className="text-foreground">Location *</Label>
                 <Select
                   value={formData.location}
                   onValueChange={(value) => setFormData({ ...formData, location: value })}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger className="bg-secondary border-border">
                     <SelectValue placeholder="Select location" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-card border-border">
                     {locations.map((loc) => (
                       <SelectItem key={loc} value={loc}>
                         {loc}
@@ -129,26 +130,27 @@ export default function AddMaterial() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="quantity">Quantity *</Label>
+                <Label htmlFor="quantity" className="text-foreground">Quantity *</Label>
                 <Input
                   id="quantity"
                   type="number"
                   placeholder="e.g., 50"
                   value={formData.quantity}
                   onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
+                  className="bg-secondary border-border"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="unit">Unit</Label>
+                <Label htmlFor="unit" className="text-foreground">Unit</Label>
                 <Select
                   value={formData.unit}
                   onValueChange={(value) => setFormData({ ...formData, unit: value })}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger className="bg-secondary border-border">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-card border-border">
                     <SelectItem value="pieces">Pieces</SelectItem>
                     <SelectItem value="kg">Kilograms (kg)</SelectItem>
                     <SelectItem value="meters">Meters</SelectItem>
@@ -159,13 +161,14 @@ export default function AddMaterial() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="description">Description (Optional)</Label>
+              <Label htmlFor="description" className="text-foreground">Description (Optional)</Label>
               <Textarea
                 id="description"
                 placeholder="Provide additional details about the material..."
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                 rows={4}
+                className="bg-secondary border-border"
               />
             </div>
 
@@ -178,7 +181,7 @@ export default function AddMaterial() {
               >
                 Cancel
               </Button>
-              <Button type="submit" variant="hero" className="flex-1">
+              <Button type="submit" variant="glow" className="flex-1">
                 Add Material
               </Button>
             </div>

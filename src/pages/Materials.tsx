@@ -59,14 +59,14 @@ export default function Materials() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <Navbar />
 
       <main className="container py-8">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-            Browse Materials
+            Explore <span className="text-gradient">Materials</span>
           </h1>
           <p className="text-muted-foreground">
             Find materials for your next project from campus labs and departments.
@@ -81,7 +81,7 @@ export default function Materials() {
               placeholder="Search materials..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10"
+              className="pl-10 bg-card border-border"
             />
           </div>
 
@@ -90,7 +90,7 @@ export default function Materials() {
             <Badge
               variant="outline"
               className={cn(
-                "cursor-pointer transition-colors",
+                "cursor-pointer transition-colors border-muted-foreground/30",
                 !selectedCategory && "bg-primary text-primary-foreground border-primary"
               )}
               onClick={() => setSelectedCategory(null)}
@@ -102,7 +102,7 @@ export default function Materials() {
                 key={cat.value}
                 variant="outline"
                 className={cn(
-                  "cursor-pointer transition-colors",
+                  "cursor-pointer transition-colors border-muted-foreground/30",
                   selectedCategory === cat.value &&
                     "bg-primary text-primary-foreground border-primary"
                 )}
@@ -138,17 +138,17 @@ export default function Materials() {
 
       {/* Request Modal */}
       <Dialog open={!!selectedMaterial} onOpenChange={() => setSelectedMaterial(null)}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-md bg-card border-border">
           <DialogHeader>
-            <DialogTitle>Request Material</DialogTitle>
-            <DialogDescription>
+            <DialogTitle className="text-foreground">Request Material</DialogTitle>
+            <DialogDescription className="text-muted-foreground">
               Submit a request for {selectedMaterial?.name}
             </DialogDescription>
           </DialogHeader>
 
           <div className="space-y-4 py-4">
             <div className="space-y-2">
-              <Label htmlFor="quantity">
+              <Label htmlFor="quantity" className="text-foreground">
                 Required Quantity (Available: {selectedMaterial?.quantity}{" "}
                 {selectedMaterial?.unit})
               </Label>
@@ -159,17 +159,19 @@ export default function Materials() {
                 value={requestQuantity}
                 onChange={(e) => setRequestQuantity(e.target.value)}
                 max={selectedMaterial?.quantity}
+                className="bg-secondary border-border"
               />
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="purpose">Purpose</Label>
+              <Label htmlFor="purpose" className="text-foreground">Purpose</Label>
               <Textarea
                 id="purpose"
                 placeholder="Describe your project and how you'll use this material..."
                 value={requestPurpose}
                 onChange={(e) => setRequestPurpose(e.target.value)}
                 rows={4}
+                className="bg-secondary border-border"
               />
             </div>
           </div>
@@ -178,7 +180,7 @@ export default function Materials() {
             <Button variant="outline" onClick={() => setSelectedMaterial(null)}>
               Cancel
             </Button>
-            <Button variant="hero" onClick={handleSubmitRequest}>
+            <Button variant="glow" onClick={handleSubmitRequest}>
               Submit Request
             </Button>
           </DialogFooter>

@@ -7,26 +7,26 @@ import { impactStats } from "@/data/mockData";
 
 export default function Index() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden gradient-hero">
-        <div className="container py-20 md:py-32">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 animate-fade-in">
-              <Leaf className="h-4 w-4" />
-              Sustainable Campus Initiative
+      <section className="relative overflow-hidden">
+        <div className="container py-24 md:py-36">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-muted-foreground/30 bg-secondary/50 text-muted-foreground text-sm font-medium mb-8 animate-fade-in backdrop-blur-sm">
+              <Leaf className="h-4 w-4 text-primary" />
+              Hyper-Local Sustainability Network
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-fade-in [animation-delay:100ms]">
-              Reduce Campus Waste,{" "}
-              <span className="text-primary">Fuel Innovation</span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 animate-fade-in [animation-delay:100ms] leading-tight">
+              Where Industrial Waste{" "}
+              <span className="text-gradient">Becomes Resource</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in [animation-delay:200ms]">
-              Connect with labs and departments to reuse materials for your projects.
-              Save resources, reduce waste, and build something amazing.
+            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto animate-fade-in [animation-delay:200ms]">
+              Connecting college labs, small industries, and recycling startups to create a
+              circular economy in your neighborhood.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in [animation-delay:300ms]">
@@ -46,8 +46,8 @@ export default function Index() {
         </div>
 
         {/* Decorative elements */}
-        <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute -top-20 -right-20 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       </section>
 
       {/* Impact Stats */}
@@ -94,7 +94,7 @@ export default function Index() {
       </section>
 
       {/* How It Works */}
-      <section className="bg-secondary/30 py-16 md:py-24">
+      <section className="py-16 md:py-24">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -131,7 +131,7 @@ export default function Index() {
                 className="text-center animate-fade-in"
                 style={{ animationDelay: `${(index + 1) * 100}ms` }}
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full gradient-primary text-primary-foreground text-2xl font-bold mb-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 text-primary text-2xl font-bold mb-4">
                   {item.step}
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-2">
@@ -146,36 +146,28 @@ export default function Index() {
 
       {/* CTA Section */}
       <section className="container py-16 md:py-24">
-        <div className="relative overflow-hidden rounded-2xl gradient-primary p-8 md:p-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
-            Ready to Make an Impact?
+        <div className="relative overflow-hidden rounded-2xl border border-primary/20 bg-card p-8 md:p-12 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+            Ready to Make an <span className="text-gradient">Impact</span>?
           </h2>
-          <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
+          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
             Join the UpCycle Connect community and help create a more sustainable campus.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/materials">
-              <Button
-                variant="secondary"
-                size="lg"
-                className="bg-card text-foreground hover:bg-card/90"
-              >
+              <Button variant="glow" size="lg">
                 Start Browsing
               </Button>
             </Link>
             <Link to="/dashboard">
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
-              >
+              <Button variant="outline" size="lg">
                 View Dashboard
               </Button>
             </Link>
           </div>
 
-          <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-primary-foreground/10 rounded-full blur-2xl" />
-          <div className="absolute -top-10 -right-10 w-48 h-48 bg-primary-foreground/10 rounded-full blur-2xl" />
+          <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
+          <div className="absolute -top-20 -right-20 w-56 h-56 bg-primary/5 rounded-full blur-3xl" />
         </div>
       </section>
 

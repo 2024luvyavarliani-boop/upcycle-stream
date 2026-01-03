@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { to: "/", label: "Home" },
-  { to: "/materials", label: "Browse" },
-  { to: "/dashboard", label: "Dashboard" },
+  { to: "/materials", label: "Explore" },
+  { to: "/dashboard", label: "Impact" },
 ];
 
 export function Navbar() {
@@ -15,14 +15,16 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 font-bold text-xl">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg gradient-primary">
-            <Recycle className="h-5 w-5 text-primary-foreground" />
+        <Link to="/" className="flex items-center gap-3 font-bold text-xl">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-muted-foreground/30 bg-secondary">
+            <Recycle className="h-5 w-5 text-primary" />
           </div>
-          <span className="text-foreground">UpCycle</span>
-          <span className="text-primary">Connect</span>
+          <div className="flex flex-col leading-tight">
+            <span className="text-foreground">UpCycle</span>
+            <span className="text-xs text-primary font-semibold tracking-wider">CONNECT</span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
@@ -34,8 +36,8 @@ export function Navbar() {
               className={cn(
                 "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
                 location.pathname === link.to
-                  ? "bg-primary/10 text-primary"
-                  : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground"
               )}
             >
               {link.label}
@@ -46,14 +48,14 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <Link to="/add-material">
             <Button variant="hero" size="sm">
-              Add Material
+              Start Now
             </Button>
           </Link>
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 rounded-lg hover:bg-accent"
+          className="md:hidden p-2 rounded-lg hover:bg-muted text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -72,8 +74,8 @@ export function Navbar() {
                 className={cn(
                   "px-4 py-3 rounded-lg text-sm font-medium transition-colors",
                   location.pathname === link.to
-                    ? "bg-primary/10 text-primary"
-                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                    ? "bg-muted text-primary"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 )}
               >
                 {link.label}
@@ -81,7 +83,7 @@ export function Navbar() {
             ))}
             <Link to="/add-material" onClick={() => setMobileOpen(false)}>
               <Button variant="hero" className="w-full mt-2">
-                Add Material
+                Start Now
               </Button>
             </Link>
           </nav>
